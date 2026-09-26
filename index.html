@@ -1,1 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ayush Pandey — Portfolio</title>
+<meta name="description" content="Ayush Pandey — Information Technology student, Data Research Analyst, developer and video editor.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
 
+:root{
+  --bg:#070910; --surface:rgba(17,21,34,.72); --surface2:#111625;
+  --text:#f7f8fc; --muted:#98a2b6; --purple:#8b6cff; --cyan:#35e6c1;
+  --line:rgba(255,255,255,.09); --max:1160px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"DM Sans",sans-serif;color:var(--text);background:var(--bg);
+  line-height:1.65;overflow-x:hidden;
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:-2;
+  background:
+    radial-gradient(circle at 75% 8%,rgba(139,108,255,.19),transparent 28%),
+    radial-gradient(circle at 8% 40%,rgba(53,230,193,.09),transparent 25%);
+}
+body:after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.25;
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:50px 50px;
+}
+a{text-decoration:none;color:inherit}
+.container{width:min(var(--max),91%);margin:auto}
+nav{
+  position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:30;
+  width:min(var(--max),91%);border:1px solid var(--line);border-radius:18px;
+  background:rgba(7,9,16,.72);backdrop-filter:blur(22px);
+  box-shadow:0 15px 50px rgba(0,0,0,.25)
+}
+.nav-inner{height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 18px}
+.logo{font-family:"Space Grotesk";font-weight:700;letter-spacing:-.04em;font-size:1.15rem}
+.logo span{color:var(--cyan)}
+.nav-links{display:flex;gap:5px}
+.nav-links a{padding:8px 12px;color:var(--muted);font-size:.84rem;border-radius:9px;transition:.2s}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,.06)}
+.hero{min-height:100vh;display:flex;align-items:center;padding:145px 0 90px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:75px;align-items:center}
+.kicker{
+  display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);
+  background:rgba(255,255,255,.035);padding:7px 12px;border-radius:999px;
+  color:#c8cfdd;font-size:.76rem;font-weight:600;margin-bottom:25px
+}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 15px var(--cyan)}
+h1{
+  font-family:"Space Grotesk";font-size:clamp(3.7rem,7vw,7rem);line-height:.9;
+  letter-spacing:-.075em;max-width:850px
+}
+.gradient{
+  background:linear-gradient(105deg,#fff 0%,#b49cff 45%,#50ebcf 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent
+}
+.hero-copy{margin-top:28px;max-width:690px;color:var(--muted);font-size:1.08rem}
+.hero-copy strong{color:#fff}
+.actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:30px}
+.btn{
+  padding:12px 18px;border:1px solid var(--line);border-radius:11px;
+  font-size:.86rem;font-weight:700;transition:.25s
+}
+.btn.primary{background:#fff;color:#080a10;border-color:#fff}
+.btn:hover{transform:translateY(-3px);border-color:rgba(139,108,255,.5)}
+.hero-orbit{
+  width:340px;height:340px;border:1px solid rgba(139,108,255,.25);
+  border-radius:50%;margin:auto;position:relative;display:grid;place-items:center;
+  box-shadow:0 0 100px rgba(139,108,255,.1),inset 0 0 80px rgba(139,108,255,.05)
+}
+.hero-orbit:before,.hero-orbit:after{
+  content:"";position:absolute;border:1px solid rgba(53,230,193,.17);border-radius:50%
+}
+.hero-orbit:before{inset:35px}.hero-orbit:after{inset:78px}
+.avatar{
+  width:135px;height:135px;border-radius:35px;display:grid;place-items:center;
+  font-family:"Space Grotesk";font-size:2.7rem;font-weight:700;
+  background:linear-gradient(135deg,#8b6cff,#35e6c1);color:#07100e;
+  box-shadow:0 25px 60px rgba(53,230,193,.16);z-index:2
+}
+.float-card{
+  position:absolute;padding:10px 13px;border:1px solid var(--line);border-radius:12px;
+  background:rgba(13,17,27,.82);backdrop-filter:blur(14px);font-size:.74rem;color:#d6dbea;
+  box-shadow:0 15px 35px rgba(0,0,0,.25)
+}
+.f1{top:22px;right:-18px}.f2{bottom:35px;left:-20px}.f3{bottom:-10px;right:20px}
+section{padding:110px 0}
+.section-head{margin-bottom:45px}
+.eyebrow{font-size:.7rem;color:var(--cyan);font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+.section-title{
+  font-family:"Space Grotesk";font-size:clamp(2.3rem,4vw,3.8rem);
+  line-height:1.02;letter-spacing:-.06em;margin-top:9px
+}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{
+  padding:27px;border:1px solid var(--line);border-radius:20px;
+  background:linear-gradient(145deg,rgba(20,25,39,.82),rgba(10,13,22,.72));
+  position:relative;overflow:hidden;transition:.3s
+}
+.card:before{
+  content:"";position:absolute;width:100px;height:100px;right:-45px;top:-45px;
+  background:rgba(139,108,255,.16);filter:blur(30px);border-radius:50%
+}
+.card:hover{transform:translateY(-6px);border-color:rgba(139,108,255,.38);box-shadow:0 20px 60px rgba(0,0,0,.25)}
+.icon{
+  width:38px;height:38px;display:grid;place-items:center;border-radius:10px;
+  background:rgba(139,108,255,.12);color:#b9aaff;font-size:.85rem;margin-bottom:20px;font-weight:800
+}
+.card h3{font-family:"Space Grotesk";font-size:1.05rem;margin-bottom:8px}
+.card p{font-size:.88rem;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+.tag{font-size:.69rem;color:#c5ccda;padding:5px 8px;border-radius:7px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.05)}
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.skill{border:1px solid var(--line);border-radius:16px;padding:19px;background:rgba(17,22,34,.55)}
+.skill-head{display:flex;justify-content:space-between;margin-bottom:11px;font-size:.85rem}
+.skill-head span{color:var(--muted);font-size:.7rem}
+.bar{height:5px;background:#202635;border-radius:20px;overflow:hidden}
+.fill{height:100%;border-radius:20px;background:linear-gradient(90deg,var(--purple),var(--cyan))}
+.timeline{max-width:880px;position:relative}
+.timeline:before{content:"";position:absolute;left:7px;top:8px;bottom:10px;width:1px;background:var(--line)}
+.item{position:relative;padding-left:36px;margin-bottom:40px}
+.item:before{
+  content:"";position:absolute;left:2px;top:9px;width:11px;height:11px;border-radius:50%;
+  background:var(--purple);box-shadow:0 0 0 6px rgba(139,108,255,.1)
+}
+.date{font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:var(--cyan);font-weight:800}
+.item h3{font-family:"Space Grotesk";font-size:1.12rem;margin:5px 0}
+.item p{color:var(--muted);font-size:.9rem}
+.contact{
+  position:relative;overflow:hidden;text-align:center;border:1px solid var(--line);
+  border-radius:28px;padding:70px 25px;background:
+  radial-gradient(circle at 50% 120%,rgba(53,230,193,.13),transparent 45%),
+  linear-gradient(135deg,rgba(139,108,255,.12),rgba(255,255,255,.025))
+}
+.contact .section-title{font-size:clamp(2.4rem,5vw,4.5rem)}
+.contact p{color:var(--muted);max-width:600px;margin:15px auto 25px}
+footer{padding:28px 0 35px;color:#667085;font-size:.75rem;text-align:center}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.show{opacity:1;transform:none}
+@media(max-width:850px){
+  nav{top:8px}.nav-links{display:none}
+  .hero{padding-top:125px}.hero-grid{grid-template-columns:1fr;gap:65px}
+  .hero-orbit{width:290px;height:290px}.grid{grid-template-columns:1fr}
+  .skills{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  h1{font-size:3.5rem}.hero-copy{font-size:1rem}.hero-orbit{width:255px;height:255px}
+  .avatar{width:110px;height:110px;font-size:2.2rem}.float-card{font-size:.65rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a class="logo" href="#home">AYUSH<span>.</span></a>
+    <div class="nav-links">
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a>
+      <a href="#experience">Experience</a><a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main id="home">
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <div class="kicker"><span class="dot"></span> IT · DATA · SOFTWARE · CYBERSECURITY</div>
+      <h1>Ideas into<br><span class="gradient">digital work.</span></h1>
+      <p class="hero-copy">
+        I'm <strong>Ayush Pandey</strong> — an Information Technology student and Data Research Analyst
+        who enjoys turning problems into clean software, structured data and practical digital experiences.
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="#projects">View my work ↓</a>
+        <a class="btn" href="#contact">Let's connect</a>
+      </div>
+    </div>
+
+    <aside class="hero-orbit reveal">
+      <div class="float-card f1">Java · Python · C++</div>
+      <div class="float-card f2">Data & Analytics</div>
+      <div class="float-card f3">Cybersecurity</div>
+      <div class="avatar">AP</div>
+    </aside>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="section-head reveal"><div class="eyebrow">01 / About</div><h2 class="section-title">Curious by nature.<br>Technical by practice.</h2></div>
+    <div class="grid">
+      <div class="card reveal"><div class="icon">01</div><h3>Data & Analytics</h3><p>Experience with data research, Excel, Google Sheets, documentation and structured information handling.</p></div>
+      <div class="card reveal"><div class="icon">02</div><h3>Software Development</h3><p>Hands-on work with Java, Python, C++, HTML/CSS, MySQL, Git/GitHub and object-oriented programming.</p></div>
+      <div class="card reveal"><div class="icon">03</div><h3>Cybersecurity</h3><p>Exploring Zero Trust Architecture, access control, authentication, logging, secure sessions and modern security models.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <div class="section-head reveal"><div class="eyebrow">02 / Skills</div><h2 class="section-title">Tools I work with.</h2></div>
+    <div class="skills">
+      <div class="skill reveal"><div class="skill-head"><strong>Java / OOP</strong><span>Core</span></div><div class="bar"><div class="fill" style="width:78%"></div></div></div>
+      <div class="skill reveal"><div class="skill-head"><strong>Python</strong><span>Core</span></div><div class="bar"><div class="fill" style="width:82%"></div></div></div>
+      <div class="skill reveal"><div class="skill-head"><strong>DSA</strong><span>Developing</span></div><div class="bar"><div class="fill" style="width:72%"></div></div></div>
+      <div class="skill reveal"><div class="skill-head"><strong>HTML / CSS / JS</strong><span>Development</span></div><div class="bar"><div class="fill" style="width:75%"></div></div></div>
+      <div class="skill reveal"><div class="skill-head"><strong>MySQL</strong><span>Database</span></div><div class="bar"><div class="fill" style="width:70%"></div></div></div>
+      <div class="skill reveal"><div class="skill-head"><strong>Excel / Sheets</strong><span>Data</span></div><div class="bar"><div class="fill" style="width:85%"></div></div></div>
+    </div>
+    <div class="tags reveal">
+      <span class="tag">Git / GitHub</span><span class="tag">Java Servlets</span><span class="tag">Tkinter</span>
+      <span class="tag">NumPy</span><span class="tag">RBAC</span><span class="tag">OTP</span>
+      <span class="tag">Documentation</span><span class="tag">Communication</span><span class="tag">Teamwork</span>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="section-head reveal"><div class="eyebrow">03 / Projects</div><h2 class="section-title">Things I've built.</h2></div>
+    <div class="grid">
+      <article class="card reveal">
+        <div class="icon">ZT</div><h3>Zero Trust Secure Web Portal</h3>
+        <p>A security-focused web portal exploring authentication, authorization and secure access principles.</p>
+        <div class="tags"><span class="tag">Java Servlets</span><span class="tag">MySQL</span><span class="tag">RBAC</span><span class="tag">OTP</span></div>
+      </article>
+      <article class="card reveal">
+        <div class="icon">DS</div><h3>DSA Visualizer</h3>
+        <p>An educational project designed to make data structures and algorithms easier to understand visually.</p>
+        <div class="tags"><span class="tag">DSA</span><span class="tag">JavaScript</span><span class="tag">UI</span></div>
+      </article>
+      <article class="card reveal">
+        <div class="icon">DB</div><h3>Student Management System</h3>
+        <p>A database-oriented application for managing structured student information and operations.</p>
+        <div class="tags"><span class="tag">Java</span><span class="tag">MySQL</span><span class="tag">CRUD</span></div>
+      </article>
+      <article class="card reveal">
+        <div class="icon">PY</div><h3>Python Number Guessing Game</h3>
+        <p>A lightweight GUI project built while practicing Python and desktop application concepts.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Tkinter</span><span class="tag">GUI</span></div>
+      </article>
+      <article class="card reveal">
+        <div class="icon">XL</div><h3>Student Data Management</h3>
+        <p>An Excel-based project focused on organizing, maintaining and working with student datasets.</p>
+        <div class="tags"><span class="tag">Excel</span><span class="tag">Data</span><span class="tag">Documentation</span></div>
+      </article>
+      <article class="card reveal">
+        <div class="icon">ZTA</div><h3>Zero Trust Architecture Review</h3>
+        <p>Research work covering NIST principles, identity, access control, mTLS, service mesh and modern ZTA challenges.</p>
+        <div class="tags"><span class="tag">Research</span><span class="tag">Cybersecurity</span><span class="tag">ZTA</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <div class="section-head reveal"><div class="eyebrow">04 / Journey</div><h2 class="section-title">Experience & learning.</h2></div>
+    <div class="timeline">
+      <div class="item reveal"><div class="date">Current</div><h3>Data Research Analyst — Morningstar</h3><p>Working with financial data research and structured information workflows while developing analytical and professional skills.</p></div>
+      <div class="item reveal"><div class="date">Academic</div><h3>B.Tech — Information Technology</h3><p>Building foundations across programming, databases, data structures, web technologies and cybersecurity.</p></div>
+      <div class="item reveal"><div class="date">Projects & Hackathons</div><h3>Hands-on Technical Development</h3><p>Working on academic projects, hackathon prototypes, research work and practical software development.</p></div>
+      <div class="item reveal"><div class="date">Creative Work</div><h3>Video Editing & Digital Design</h3><p>Combining technical thinking with visual communication and creative editing.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact reveal">
+      <div class="eyebrow">05 / Contact</div>
+      <h2 class="section-title">Let's build something.</h2>
+      <p>Interested in collaborating on software, data, cybersecurity, student projects or creative digital work?</p>
+      <div class="actions" style="justify-content:center">
+        <a class="btn primary" href="mailto:your.email@example.com">Email me</a>
+        <a class="btn" href="https://github.com/" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>© <span id="year"></span> Ayush Pandey · Built as a single HTML file.</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add("show"); });
+},{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
